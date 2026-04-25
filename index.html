@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <title>
+        ALA2
+    </title>
+    <body>
+      <h1> SHA Integrity Analyzer
+        <h5 style="background-color: beige; font-family: 'Times New Roman', Times, serif;">
+        # SHA Integrity Analyzer<br>
+# Compare SHA-1, SHA-256, and SHA-512<br>
+# Demonstrates Avalanche Effect<br>
+
+import hashlib<br>
+
+def generate_hashes(message):<br>
+    message_bytes = message.encode()<br>
+
+    sha1 = hashlib.sha1(message_bytes).hexdigest()<br>
+    sha256 = hashlib.sha256(message_bytes).hexdigest()<br>
+    sha512 = hashlib.sha512(message_bytes).hexdigest()<br>
+
+    return sha1, sha256, sha512<br>
+
+
+print("====== SHA Integrity Analyzer ======\n")<br>
+
+# Original Message<br>
+message1 = input("Enter original message: ")<br>
+
+# Slightly Modified Message<br>
+message2 = input("Enter slightly modified message: ")<br>
+
+print("\nGenerating hashes...\n")<br>
+<br>
+sha1_m1, sha256_m1, sha512_m1 = generate_hashes(message1)<br>
+sha1_m2, sha256_m2, sha512_m2 = generate_hashes(message2)<br>
+<br>
+print("----- ORIGINAL MESSAGE HASHES -----")<br>
+print("SHA-1   :", sha1_m1)<br>
+print("SHA-256 :", sha256_m1)<br>
+print("SHA-512 :", sha512_m1)<br>
+<br>
+print("\n----- MODIFIED MESSAGE HASHES -----")<br>
+print("SHA-1   :", sha1_m2)<br>
+print("SHA-256 :", sha256_m2)<br>
+print("SHA-512 :", sha512_m2)<br>
+<br>
+print("\n====== Avalanche Effect Observation ======")<br>
+<br>
+print("\nSHA-1 Changed?   :", sha1_m1 != sha1_m2)<br>
+print("SHA-256 Changed? :", sha256_m1 != sha256_m2)<br>
+print("SHA-512 Changed? :", sha512_m1 != sha512_m2)<br>
+<br>
+print("\nNote: Even a single character change produces completely different hash values.")<br>
+        </h5>
+      </h1>
+      <h1>Output</h1>
+      <img src="img2.jpg" alt="A descriptive description of the image">
+        </body>
+</html>
